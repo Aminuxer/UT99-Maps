@@ -9,5 +9,5 @@ SHA-256 (CTF-W-Garden-2025.unr) 0640baea66f252a41c391ccf031a67554cc945cc4dfbaf3e
 
 SHA-256 (DM-W-Garden-2025-LCE.unr) e4a25b917fb6901c7eb0697e23a2124468071b9cf402a05ed00721e84469ea60
 
-![DM-W-Garden-2025](https://raw.githubusercontent.com/Aminuxer/UT99-Maps/refs/heads/main/W-Garden-2025/DM-W-Garden-2025.jpg)
+![DM-W-Garden-2025](https://raw.githubusercontent.com/Aminuxer/UT99-Maps/refs/heads/master/W-Garden-2025/DM-W-Garden-2025.jpg)
 
