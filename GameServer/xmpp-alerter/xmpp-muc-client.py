@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 """
-Aminuxer MUC Client - Simplest XMPP chat client with configurable TLS validation     + Qwen AI 3.6-27B
+Aminuxer MUC Client - Simplest XMPP chat client with configurable TLS validation
 
 Configuration:
 - LOGIN: user@server.tld
@@ -20,11 +20,10 @@ VALIDATE_TLS_CERT = False
 PRINT_DEBUG_LOG = False
 
 # -----------------------------------------------
-VERSION = "2026-08-15"
+VERSION = "2026-11-10"
 USER_AGENT = "Aminuxer Tiny MUC client v." + VERSION
 # XEP-0115 caps node: software identifier (never fetched, just hashed)
 CAPS_NODE = "http://Aminuxer-Tiny-MUC/v." + VERSION
-
 # -----------------------------------------------
 import slixmpp
 from slixmpp.xmlstream.handler import Callback
@@ -190,6 +189,7 @@ class XmppClient:
             self.client.requested_jid.resource = RESOURCE
 
             # Plugins are not loaded automatically in slixmpp 1.8.3, register explicitly (the identity is added in session_start, once the JID is bound)
+            self.client.register_plugin('xep_0030')
             self.client.register_plugin('xep_0115')
 
             # Register session handlers (slixmpp 1.8 event API)
@@ -197,8 +197,9 @@ class XmppClient:
             self.client.add_event_handler('session_end', self.session_end)
 
             # Connect, then run the event loop in a background thread
+            # (ClientXMPP.process() was removed in slixmpp 1.9; client.loop works on 1.8.x too)
             self.client.connect()
-            threading.Thread(target=self.client.process, daemon=True).start()
+            threading.Thread(target=self.client.loop.run_forever, daemon=True).start()
 
             print("Client starting")
 
