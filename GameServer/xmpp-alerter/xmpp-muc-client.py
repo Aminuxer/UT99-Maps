@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 """
-Aminuxer MUC Client - Simplest XMPP chat client with configurable TLS validation
+Aminuxer MUC Client - Simplest XMPP chat client with configurable TLS validation     + Qwen AI 3.6-27B
 
 Configuration:
 - LOGIN: user@server.tld
